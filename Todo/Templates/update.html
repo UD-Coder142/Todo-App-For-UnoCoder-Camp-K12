@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Update Task</h1>
+<br/>
+<form action="/tasks/update/{{ val }}" method="POST">
+  <div style="padding-left:40%;" class="container-fluid">
+    <div class="mb-3 row" align="center">
+      <input class="col-form-control" type="text" placeholder="Task" name="todo_task">
+      <button type="submit" class="btn btn-dark">Update Task</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

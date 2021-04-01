@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Todo</h1>
+<br/>
+<form action="/home" method="POST">
+  <div style="padding-left:40%;" class="container-fluid">
+    <div class="mb-3 row" align="center">
+      <input class="col-form-control" type="text" placeholder="Task" name="todo_task">
+      <button type="submit" class="btn btn-dark">Add Task</button>
+    </div>
+  </div>
+</form>
+<br/>
+<table class="table table-hover table-danger">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Content</th>
+      <th scope="col">Complete Task</th>
+      <th scope="col">Update Task</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Task in todo %}
+      <tr>
+        <th scope="row">{{ Task.id }}</th>
+        <td>{{ Task.content }}</td>
+        <td><a class="btn btn-outline-light" href="/tasks/delete/{{ Task.id }}">Complete Task</a></td>
+        <td><a class="btn btn-outline-light" href="/tasks/update/{{ Task.id }}">Update Task</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
